@@ -3,26 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>З Днем народження!</title>
+  <title>Привітання</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="start-screen" id="start-screen">
-    <img src="background.jpg" alt="background" class="background" />
-    <div class="overlay">
-      <p class="prompt-text">🔊 Підключи колонки</p>
-      <button id="start-btn">Почати</button>
-    </div>
-    <audio id="intro" src="lets-begin.mp3" autoplay></audio>
+  <div id="main-screen">
+    <button id="main-button">Погнали</button>
   </div>
 
-  <div class="player-screen hidden" id="player-screen">
-    <img src="background2.jpg" alt="background" class="background" />
+  <div id="visualizer-container" class="hidden">
     <canvas id="visualizer"></canvas>
-    <button class="close-btn" id="close-btn">×</button>
-    <button class="pause-btn" id="pause-btn">⏸</button>
-    <audio id="track" src="track.mp3"></audio>
   </div>
+
+  <audio id="intro" src="lets-begin.mp3"></audio>
+  <audio id="track" src="track.mp3" crossorigin="anonymous"></audio>
 
   <script src="script.js"></script>
 </body>
