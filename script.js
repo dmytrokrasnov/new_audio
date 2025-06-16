@@ -60,11 +60,13 @@ function drawVisualizer() {
     const time = Date.now() * 0.002;
 
     for (let i = 0; i < bufferLength; i++) {
-      const barHeight = dataArray[i];
-      const barHeight = rawHeight * 1.8;
+      const rawHeight = dataArray[i];
+      const barHeight = Math.pow(rawHeight, 1.3); // усиливаем через степень
+
       const hue = (i * 5 + time * 50) % 360;
       ctx.fillStyle = `hsla(${hue}, 100%, 50%, 0.75)`;
       ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+
       x += barWidth + 1;
     }
   }
