@@ -61,6 +61,7 @@ function drawVisualizer() {
 
     for (let i = 0; i < bufferLength; i++) {
       const barHeight = dataArray[i];
+      const barHeight = rawHeight * 1.8;
       const hue = (i * 5 + time * 50) % 360;
       ctx.fillStyle = `hsla(${hue}, 100%, 50%, 0.75)`;
       ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
