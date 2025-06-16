@@ -21,9 +21,17 @@ mainBtn.onclick = () => {
 
   if (step === 0) {
     intro.play();
-    mainBtn.textContent = "Готово, запускай!";
+    mainBtn.disabled = true;
+    mainBtn.style.opacity = "0.5"; // визуально "неактивная"
     step = 1;
-  } else if (step === 1) {
+
+    intro.onended = () => {
+      mainBtn.textContent = "Готово, запускай!";
+      mainBtn.disabled = false;
+      mainBtn.style.opacity = "1";
+      step = 2;
+    };
+  } else if (step === 2) {
     mainScreen.classList.add("hidden");
     visualizerContainer.classList.remove("hidden");
 
@@ -42,9 +50,10 @@ mainBtn.onclick = () => {
 
     track.play();
     drawVisualizer();
-    step = 2;
+    step = 3;
   }
 };
+
 
 function drawVisualizer() {
   canvas.width = window.innerWidth;
